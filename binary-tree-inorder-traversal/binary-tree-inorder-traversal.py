@@ -21,3 +21,6 @@ class Solution:
         return result;
     
     
+    
+    
+    # Time is 2(n) = o(n) and space is o(n)

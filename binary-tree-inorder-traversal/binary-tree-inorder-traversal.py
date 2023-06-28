@@ -23,4 +23,4 @@ class Solution:
     
     
     
-    # Time is 2(n) = o(n) and space is o(n)
+    # Time is 2(n) = O(n) and space is O(n)

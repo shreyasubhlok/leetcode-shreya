@@ -6,13 +6,12 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        #Time Complexity: O(n) - where n is the number of nodes in the binary tree.
+        #Space Complexity: O(h) - where h is the height of the binary tree, and in the worst case(linear tree), it could be O(n).
         if root is None:
             return 0
-        
-        leftHeight=self.maxDepth(root.left)
-        rightHeight=self.maxDepth(root.right)
-        
-        maxHeight=1+max(leftHeight,rightHeight)
-        
-        return maxHeight
-        
+
+        left_height = self.maxDepth(root.left)
+        right_height = self.maxDepth(root.right)
+
+        return max(left_height, right_height) + 1

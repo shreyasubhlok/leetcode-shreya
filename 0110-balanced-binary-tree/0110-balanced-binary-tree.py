@@ -9,6 +9,7 @@ class Solution:
     Balanced binary tree meaning the heght difference between left and subtrees is AT MOST 1
     Time complexity: O(N),N is no of nodes in tree. Coz each node is visited once, the overall time complexity is linear i.e O(N).
     Space Complexity: O(H),H is the height of the tree. This could be bad as O(N) in a skewed tree or O(log N) in a balanced tree.
+    Note-  # In Python, when you define a nested function within another function or class method,then no need to use self.
     '''
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         return self.Height(root) != -1 #The tree is balanced if the height function does not return -1

@@ -1,45 +1,46 @@
 class MyQueue:
-    #Time complexity: O(1) amortized(almost every time) for each operation - push,pop and peek
-    #Space complexity: O(2n)=O(n), where nnn is the number of elements in the queue
-    
+
     def __init__(self):
-        # Initialize two stacks
-        self.inputStack = []  # inputStack to perform push operations
-        self.outputStack = []  # outputStack to perfrom pop and peek operations
-        print(f"Initialized am empty queue. InputStack:{self.inputStack}, outputStack:{self.outputStack}")
+        #Here i will initialize inputstack and outputstack
+        self.inputstack = []
+        self.outputstack=[]
+        print(f"inputstack and outputstack initailized. Inputstack = {self.inputstack} and outputstack = {self.outputstack}")
+        
 
     def push(self, x: int) -> None:
-        #push x into the inputStack
-        self.inputStack.append(x)
-        print(f"pushed {x} to the inputStack. InputStack:{self.inputStack}, outputStack:{self.outputStack}")
+        #push elements to input stack
+        self.inputstack.append(x)
+        print(f"Pushed element {x} to inputstack. Inputstack = {self.inputstack} and outputStack = {self.outputstack}")
+        
 
     def pop(self) -> int:
-        #if the outputStack is empty, pop all the elements from inputStack and push it to the outputStack
-        if not self.outputStack: #if not self.outputStack: means that self.outputStack is empty.
-            while len(self.inputStack) != 0:
-                val = self.inputStack.pop()
-                self.outputStack.append(val)
-        #Pop and return the top value from outputStack
-        popped_value = self.outputStack.pop()
-        print(f"Popped {popped_value} from outputStack. InputStack:{self.inputStack}, outputStack:{self.outputStack} ")
+        if not self.outputstack:
+            while len(self.inputstack)!=0 :
+                val=self.inputstack.pop()
+                self.outputstack.append(val)
+        popped_value=self.outputstack.pop()
+        print(f"popped value {popped_value} from outputstack. Inputstack = {self.inputstack} and outputStack = {self.outputstack}")
         return popped_value
+        
 
     def peek(self) -> int:
-        #if the outputStack is empty, pop all the elements from inputStack and push it to the outputStack
-        if not self.outputStack:
-            while len(self.inputStack) != 0:
-                val = self.inputStack.pop()
-                self.outputStack.append(val)
-        # Return the top element from the output stack
-        peek_value = self.outputStack[-1] #means accessing the last element (top element)
-        print(f"Peeked {peek_value} from outputStack. InputStack:{self.inputStack}, outputStack:{self.outputStack} ")
+        if not self.outputstack:
+              while len(self.inputstack)!=0:
+                val=self.inputstack.pop()
+                self.outputstack.append(val)
+        peek_value=self.outputstack[-1]
+        print(f"PeekedValue is {peek_value} from outputstack. Inputstack = {self.inputstack} and outputStack = {self.outputstack}")
         return peek_value
+        
+              
+        
 
     def empty(self) -> bool:
-        if not self.outputStack and not self.inputStack:
+        if not self.inputstack and not self.outputstack:
             return True
         else:
             return False
+        
 
 
 # Your MyQueue object will be instantiated and called as such:

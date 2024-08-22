@@ -1,22 +1,16 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         res=0
-        oddcount=0
-        myMap={}
+        mySet=set()
         for ch in s:
-            if ch in myMap:
-                myMap[ch]=myMap[ch]+1
+            if ch in mySet:
+                res=res+2
+                mySet.remove(ch)
             else:
-                myMap[ch]=1
+                mySet.add(ch)
                 
-        for value in myMap.values():
-            if value%2==0:
-                res=res+value
-            else:
-                res=res+value-1
-                oddcount=1
+        if len(mySet)>0:
+            res=res+1
         
-        
-        return oddcount+res
-        
+        return res
         

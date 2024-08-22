@@ -1,6 +1,14 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        # time complexity o(n) and space complexity is O(n)-not sure why leetcode is saying o(1)
+        '''
+         Time is o(n) and space is o(1)
+         The space complexity is generally considered O(1) in problems like
+         these because the set size is bounded by the number of distinct
+        characters that can appear in s. In this case, the maximum number
+        of distinct characters is constant because there are only 26
+        lowercase English letters (assuming the input consists of only
+        lowercase letters)
+        '''
         if len(s) == 0:
             return 0
         charSet = set() #initialize set in python
@@ -25,7 +33,7 @@ class Solution:
 
 """
 def longestPalindrome(self, s: str) -> int:
-        #time complexity o(n) and space complexity is O(n)
+        #time complexity o(n) and space complexity is O(1)
         if len(s) == 0:
             return 0
 

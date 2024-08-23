@@ -5,9 +5,10 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    #DFS- Mostly tree questions are DFS(stack recursion)
+    #Time Complexity: O(n) - where n is the number of nodes in the binary tree.
+    #Space Complexity: O(h) - where h is the height of the binary tree, and in the worst case(linear tree), it       could be O(n).
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        #Time Complexity: O(n) - where n is the number of nodes in the binary tree.
-        #Space Complexity: O(h) - where h is the height of the binary tree, and in the worst case(linear tree), it could be O(n).
         if root is None:
             return 0
 

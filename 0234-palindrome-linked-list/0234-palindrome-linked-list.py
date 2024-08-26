@@ -4,23 +4,28 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-
-    def isPalindrome(self, head: ListNode) -> None:
+    #time is o(n) and space is o(1)
+    def isPalindrome(self, head: ListNode) -> bool:
         if head is None or head.next is None:
-            return head
+            return True  # Return True for empty or single-node list
 
+        # Find the middle of the list
         slow = head
         fast = head
         while fast != None and fast.next != None:
             fast = fast.next.next
             slow = slow.next
+        # Reverse the second half of the list
         slow = self.reverseList(slow)
 
-        while head != None and slow != None :
-            if head.val != slow.val:
+        # Compare the first half with the reversed second half - palindrome logic check
+        first_half = head
+        second_half = slow
+        while second_half != None:
+            if first_half.val != second_half.val:
                 return False
-            head = head.next
-            slow = slow.next
+            first_half = first_half.next
+            second_half = second_half.next
 
         return True
 

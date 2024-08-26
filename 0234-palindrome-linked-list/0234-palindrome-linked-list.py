@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    #time is o(n) and space is o(1)
+    #time is o(n) and space is o(1)->in-place reversal approach
     def isPalindrome(self, head: ListNode) -> bool:
         if head is None or head.next is None:
             return True  # Return True for empty or single-node list
@@ -42,7 +42,25 @@ class Solution:
             curr = temp
 
         return prev
-
+    
+     #time is o(n) and space is also o(n) coz of extra array. So approach 1 in-place reversal           approach is better
+    def isPalindromeAnotherApproach(self, head: ListNode) -> None:
+        arr = []
+        curr = head
+        while curr != None:
+            arr.append(curr.val)
+            curr = curr.next
+        '''
+        Slicing in Python: Syntex-> sequence[start:stop:step]
+        [::-1] Explanation:
+        arr[::-1] is a slice of the entire list arr, but with a step size of -1.
+        The step size -1 means "start from the end and move backwards."
+        As a result, arr[::-1] gives you the reversed version of the list arr.
+        '''
+        if arr == arr[::1]: #checks if the original list arr is the same as reversed list.
+            return True
+        else:
+            return False
 
 def PrintList(head: ListNode) -> None:
     curr = head

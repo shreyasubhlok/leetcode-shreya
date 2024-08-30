@@ -32,6 +32,18 @@ class Solution:
     
 '''
 Execution:
+root p
+    #     1
+    #    / 
+    #   2   
+    #  / \ 
+    # 3  4 
+root q
+    #     1
+    #      \
+    #       2
+    #      / \
+    #      4  3
 
 1.isSymmetric(root) is called with the root node (1).
 2. Since root is not None, it calls isMirror(root, root) with the same root node.

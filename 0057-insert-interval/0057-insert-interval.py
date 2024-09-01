@@ -29,3 +29,38 @@ class Solution:
             i = i + 1
 
         return res
+    
+
+if __name__ == "__main__":
+    sol = Solution()
+
+    # Test Case 1: No Overlap Before (Case 1)
+    intervals1 = [[1, 2], [5, 6]]
+    newInterval1 = [3, 4]
+    print("57. Insert Interval : ")
+    print("Test Case 1:", sol.insert(intervals1, newInterval1))  # Expected: [[1, 2], [3, 4], [5, 6]]
+
+    # Test Case 2: Complete Overlap (Case 2)
+    intervals2 = [[1, 3], [6, 9]]
+    newInterval2 = [2, 7]
+    print("Test Case 2:", sol.insert(intervals2, newInterval2))  # Expected: [[1, 9]]
+
+    # Test Case 3: No Overlap After (Case 3)
+    intervals3 = [[1, 2], [3, 5]]
+    newInterval3 = [6, 7]
+    print("Test Case 3:", sol.insert(intervals3, newInterval3))  # Expected: [[1, 2], [3, 5], [6, 7]]
+
+    # Test Case 4: Partial Overlap (Combining Cases)
+    intervals4 = [[1, 3], [5, 7], [8, 10]]
+    newInterval4 = [6, 8]
+    print("Test Case 4:", sol.insert(intervals4, newInterval4))  # Expected: [[1, 3], [5, 10]]
+
+    # Test Case 5: New Interval Encapsulates Existing Interval (Case 2)
+    intervals5 = [[1, 3], [7, 9]]
+    newInterval5 = [2, 8]
+    print("Test Case 5:", sol.insert(intervals5, newInterval5))  # Expected: [[1, 9]]
+
+    # Test Case 6: New Interval Encapsulates Existing Interval (Case 2)
+    intervals6 = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
+    newInterval7 = [4, 8]
+    print("Test Case 5:", sol.insert(intervals6, newInterval7))  # Expected: [[1, 2], [3, 10], [12, 16]]

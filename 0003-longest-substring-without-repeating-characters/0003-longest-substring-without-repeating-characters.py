@@ -1,5 +1,6 @@
 class Solution:
     # Time is o(n) and space is o(n)
+    #https://github.com/shreyasubhlok/leetcode-shreya/blob/main/0003-longest-substring-without-repeating-characters/3.%20Longest%20Substring%20Without%20Repeating%20Characters.jpeg
     def lengthOfLongestSubstring(self, s: str) -> int:
         if len(s) == 0:
             return 0

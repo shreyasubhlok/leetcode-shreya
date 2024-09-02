@@ -14,6 +14,7 @@ class Solution:
                 # Update the start of the window (i) to be the maximum of the current i
                 # and one position after the last occurrence of the current character
                 # This ensures that i only moves forward and doesn't move backward
+                #i = myMap[s[j]] + 1 #This is wrong. I should never look backward. Consider dryrun for "abba"
                 i = max(i, myMap[s[j]] + 1)
 
             myMap[s[j]] = j  # update the current character's index in the map

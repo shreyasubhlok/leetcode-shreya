@@ -1,6 +1,7 @@
 class Solution:
     # time is o(n2) due to the nested loops after sorting
-    # space is o(1) excluding the space required to store the output
+    # space is o(1) excluding the space required to store the output (.sort() in python is an in-place sort, the extra space required for sorting is o(1)
+    
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         if len(nums) == 0:
             return []

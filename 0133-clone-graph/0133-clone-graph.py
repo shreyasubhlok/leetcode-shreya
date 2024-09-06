@@ -8,7 +8,17 @@ class Node:
 
 from typing import Optional
 class Solution:
-    # BFS function to clone the graph
+    
+    """
+    To solve this problem we need two things:
+
+    BFS to traverse the graph
+    A hash map to keep track of already visited and already cloned nodes
+    We push a node in the queue and make sure that the node is already cloned. Then we process neighbors. If a neighbor is already cloned and visited, we just append it to the current clone neighbors list, otherwise, we clone it first and append it to the queue to make sure that we can visit it in the next tick.
+
+    Time: O(V + E) - for BFS
+    Space: O(V) - for the hashmap
+    """
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         # Check if the input graph is empty
         if node is None:

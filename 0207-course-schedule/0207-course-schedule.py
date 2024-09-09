@@ -1,5 +1,6 @@
 class Solution:
     '''
+    Check image file dry run in lithub
     Time: o(v+e) overall
         Step 1: Calculate In-degree of Each Node -> o(v+e)
         step 2:Step 2: Initialize the Queue and Add All 0 In-degree Vertices -> o(v)
@@ -16,7 +17,9 @@ class Solution:
         adjList = [[] for i in range(numCourses)]
         inDegrees = [0] * len(adjList)  # Initialize in-degrees array
         topoOrder = []  # res list to store the topological order (if valid)
-
+        queue = deque()
+        
+        
         for pair in prerequisites:
             course = pair[0]
             prereq = pair[1]
@@ -26,7 +29,6 @@ class Solution:
             # STEP 2: create an array in degrees to store the no of edges for each node in graph
 
         # STEP 3: Add all nodes with zero indegree to queue
-        queue = deque()
         for i in range(len(inDegrees)):
             if inDegrees[i] == 0:  # Add courses which have no prerequisites and can be started immediately
                 queue.append(i)

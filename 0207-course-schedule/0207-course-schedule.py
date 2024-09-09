@@ -15,7 +15,7 @@ class Solution:
         # Required initializations for this code
         adjList = [[] for i in range(numCourses)]
         inDegrees = [0] * len(adjList)  # Initialize in-degrees array
-        topoOrder = []  # List to store the topological order (if valid)
+        topoOrder = []  # res list to store the topological order (if valid)
 
         for pair in prerequisites:
             course = pair[0]

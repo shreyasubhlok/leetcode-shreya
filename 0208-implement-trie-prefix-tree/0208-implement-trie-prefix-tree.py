@@ -7,7 +7,17 @@ class TrieNode:
         self.isEndOfWord=False
      
 class Trie:
-
+    """
+    Refer img lithub as well
+    Time Complexity:
+      Insert: O(L), where L is the length of the word.
+      Search: O(L), where L is the length of the word. 
+      StartsWith: O(L), where L is the length of the prefix. 
+    Space Complexity:
+      Insert: O(L * N), where N is the number of words inserted and L is the average length of the words. 
+      Search: O(1) additional space, since no new nodes are created.
+      StartsWith: O(1) additional space, as it only traverses the existing Trie without creating nodes.
+     """
     def __init__(self):
         self.root=TrieNode()   # Root node represents the starting point of the Trie.
     

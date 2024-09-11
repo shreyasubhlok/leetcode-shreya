@@ -10,21 +10,19 @@ class Solution:
         if amount == 0:
             return 0
 
-        # Initialize a dp array where dp[i] represents the minimum number of coins needed to make i amount
-        # Start with math.inf (infinity), meaning the amount is not yet reachable
         dp = [math.inf] * (amount + 1)
-        dp[0] = 0  # Base case: 0 coins are needed to make amount 0
+        dp[0] = 0  
 
-        for x in range(1, amount + 1):  # Loop through each amount from 1 to the target amount,x represents the current amount we are trying to form
-            for coin in coins:  # Try each coin from the list of coins to see if it can be used to make the current amount `x`.
-                if x - coin >= 0:  # Only proceed if the current coin can be used to make `x`. If it is negative, this coin cannot be used to form `x`
-                    dp[x] = min(dp[x], dp[x - coin] + 1)  # This means: check if using the current coin gives a better (lower) number of coins than the previously recorded result in dp[x].
+        for x in range(1, amount + 1): 
+            for coin in coins: 
+                if x - coin >= 0:  
+                    dp[x] = min(dp[x], dp[x - coin] + 1) 
 
         # If dp[amount] is still infinity, that means it's impossible to form the amount with the given coins
         if dp[amount] != math.inf:
-            return dp[amount]  # Return the minimum number of coins needed to form the amount
+            return dp[amount]  
         else:
-            return -1  # Return -1 if it's not possible to form the amount
+            return -1  
 
 
 

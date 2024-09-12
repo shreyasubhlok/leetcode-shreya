@@ -1,5 +1,5 @@
 class Solution:
-    # Time: o(n)
+    # Time: o(n) - check img leethub
     # space: o(1), The space complexity is O(1) for auxiliary space since the res array is considered the output and doesn't count toward extra space as given in question.
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         res = [1] * len(nums)

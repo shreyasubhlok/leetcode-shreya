@@ -9,11 +9,11 @@ class MinStack:
     def push(self, val: int) -> None:
         self.stack.append(val)  # Push the value onto the main stack anyways
         # For the minStack, push the smaller value between the current value and the top of minStack.If minStack is empty, just push the current value.
+        
         if self.minStack:
             val = min(val, self.minStack[-1])
-        self.minStack.append(
-            val
-        )  # Append the new minimum (or current value if minStack is empty)
+            
+        self.minStack.append(val)  # Append the new minimum (or current value if minStack is empty)
 
     def pop(self):
         # Pop the top elements from both the main stack and the minStack. This ensures the minimum value is always in sync with the current stack's values.

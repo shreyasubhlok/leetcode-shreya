@@ -1,41 +1,27 @@
 class MinStack:
-
+    # time complexity: o(1) for each operation.
+    # spcace complexity:O(n), where n is the number of elements stored in the stack.
     def __init__(self):
-        # Initialize the minimum value as infinity.
-        self.min_val = float('inf')
-        # Initialize the stack.
+        # Initialize two stacks: one for storing values, the other for tracking minimums.
         self.stack = []
+        self.minStack = []
 
-    def push(self, x: int) -> None:
-        # If the value to be pushed is less than or equal to the current minimum,
-        # push the current minimum first and then update the minimum value.
-        if x <= self.min_val:
-            self.stack.append(self.min_val)
-            self.min_val = x
-        # Push the value.
-        self.stack.append(x)
+    def push(self, val: int) -> None:
+        self.stack.append(val)  # Push the value onto the main stack anyways
+        # For the minStack, push the smaller value between the current value and the top of minStack.If minStack is empty, just push the current value.
+        if self.minStack:
+            val = min(val, self.minStack[-1])
+        self.minStack.append(
+            val
+        )  # Append the new minimum (or current value if minStack is empty)
 
-    def pop(self) -> None:
-        # Pop the top element.
-        if self.stack.pop() == self.min_val:
-            # If the popped element is the current minimum,
-            # the next popped value will be the previous minimum.
-            self.min_val = self.stack.pop()
+    def pop(self):
+        # Pop the top elements from both the main stack and the minStack. This ensures the minimum value is always in sync with the current stack's values.
+        self.stack.pop()
+        self.minStack.pop()
 
     def top(self) -> int:
-        # Return the top element of the stack.
-        return self.stack[-1]
+        return self.stack[-1]  # Return the top element of the main stack.
 
     def getMin(self) -> int:
-        # Return the minimum value.
-        return self.min_val
-
-        
-
-
-# Your MinStack object will be instantiated and called as such:
-# obj = MinStack()
-# obj.push(val)
-# obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.getMin()
+        return self.minStack[-1]  # Return the top element of the minStack.

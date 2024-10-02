@@ -1,4 +1,10 @@
 class Solution:
+    '''
+    Time: O(nlogk)
+    The first step which counts the frequencies of each number in nums, takes O(n) time, where n is the number of elements in     nums.
+    The second loop iterates through the counterMap, where the heappush operation takes O(log k) time.
+    Space: o(n) ~= o(n+k), The space used by the min-heap is O(k)
+    '''
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         res = []
         # Step 1: Create a frequency counter map

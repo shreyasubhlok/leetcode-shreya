@@ -15,6 +15,12 @@ class Solution:
                     return False
                 if board[r][c]!=".":
                     rows.add(board[r][c])
+                    location = 3 * (r//3) + (c//3)
+                    if board[r][c] in squares[location]:
+                         return False
+                
+                if board[r][c]!=".":
+                    squares[location].add(board[r][c])
                 
                 if board[c][r] in cols:
                     return False
@@ -22,11 +28,7 @@ class Solution:
                     cols.add(board[c][r])
                 
                    
-                location = 3 * (r//3) + (c//3)
-                if board[r][c] in squares[location]:
-                    return False
-                if board[r][c]!=".":
-                    squares[location].add(board[r][c])
+            
                 
 
         return True

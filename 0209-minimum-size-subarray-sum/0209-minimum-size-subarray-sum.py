@@ -7,8 +7,6 @@ class Solution:
         j = 0
         minlen = math.inf
         while j < len(nums):
-            print(j)
-            print(i)
             if windowsum < target:
                 if j!=len(nums)-1:
                     j+=1

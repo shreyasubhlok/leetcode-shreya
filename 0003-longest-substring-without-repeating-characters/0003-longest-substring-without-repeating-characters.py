@@ -1,27 +1,26 @@
 class Solution:
     # Time is o(n) and space is o(n)
-    #https://github.com/shreyasubhlok/leetcode-shreya/blob/main/0003-longest-substring-without-repeating-characters/3.%20Longest%20Substring%20Without%20Repeating%20Characters.jpeg
+    # sliding window technique
     def lengthOfLongestSubstring(self, s: str) -> int:
-        if len(s) == 0:
-            return 0
+        # Initialize two pointers, i and j, to represent the current window's start and end
+        i = 0  # Start of the sliding window
+        j = 0  # End of the sliding window
+        mySet = set()  # Set to store unique characters in the current window
+        maxlen = 0  
+        
+        # Traverse the string using the 'j' pointer
+        while j < len(s):
+            # If the current character at 'j' is not already in the set, it means no repetition
+            if s[j] not in mySet:
+                mySet.add(s[j])  # Add the character to the set (expanding the window)
+                # Update maxlen with the length of the current window (size of the set)
+                maxlen = max(maxlen, len(mySet))
+                j = j + 1  # Move the 'j' pointer to expand the window
+            else:
+                # If the character at 'j' is already in the set (repetition found),
+                # Remove the character at 'i' (start of the window) to shrink the window
+                if s[i] != s[j] or s[i] == s[j]:
+                    mySet.remove(s[i])
+                i = i + 1  # Move the 'i' pointer to shrink the window
 
-        i = 0  # Initialize the starting index of the current window
-        maxLen = 0
-        myMap = {}
-
-        for j in range(len(s)):
-            # If the current character is already in the map, it means we found a repeating character
-            if s[j] in myMap:
-                # Update the start of the window (i) to be the maximum of the current i
-                # and one position after the last occurrence of the current character
-                # This ensures that i only moves forward and doesn't move backward
-                #i = myMap[s[j]] + 1 #This is wrong. I should never look backward. Consider dryrun for "abba"
-                i = max(i, myMap[s[j]] + 1)
-
-            myMap[s[j]] = j  # update the current character's index in the map
-            currLen = j - i + 1  # Calculate the length of the current window (substring without repeating characters)
-            maxLen = max(maxLen, currLen)
-
-        return maxLen
-
-            
+        return maxlen

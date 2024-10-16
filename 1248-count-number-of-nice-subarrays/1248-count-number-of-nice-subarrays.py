@@ -1,28 +1,37 @@
+from typing import List
+
+
 class Solution:
+    # Time is o(n)
+    # Space is o(1)
     def numberOfSubarrays(self, nums: List[int], k: int) -> int:
-        left = 0  # Pointer to the left boundary of the window
-        right = 0  # Pointer to the right boundary of the window
-        odd_count = 0  # To count the number of odd numbers in the window
-        final_count = 0  # To store the total number of valid subarrays
-        temp_count = 0  # To store the number of subarrays for a given window
+        # Initialize the sliding window pointers and counters
+        i = 0  # 'i' is the start pointer (shrink window)
+        j = 0  # 'j' is the end pointer (expand window)
+        oddcount = 0
+        finalcount = 0  # To store the total number of 'nice' subarrays found
+        tempcount = 0  # Temporary counter to count subarrays that end at index 'j'
 
-        while right < len(nums):
-            # Check if nums[right] is odd
-            if nums[right] % 2 != 0:
-                odd_count += 1  # Increment odd count if current number is odd
-                temp_count = 0  # Reset temp_count whenever a new odd number is encountered
+        # Expand the window using 'j'
+        while j < len(nums):
+            # If nums[j] is odd, increment the oddcount and reset tempcount
+            # tempcount is to keep track of only valid subarrays
+            if nums[j] % 2 != 0:
+                oddcount = oddcount + 1
+                tempcount = 0
 
-            # When odd_count equals k, check how many subarrays can be formed
-            while odd_count == k:
-                temp_count += 1  # We can form a subarray ending at 'right' with exactly k odd numbers
-                # If nums[left] is odd, decrement the odd count as we move 'left' pointer
-                if nums[left] % 2 != 0:
-                    odd_count -= 1
-                left += 1  # Move left pointer to shrink the window
+            # Once we have exactly 'k' odd numbers, start shrinking the window from the left
+            while oddcount == k:
+                # Increment tempcount, since the subarray from 'i' to 'j' is valid
+                tempcount = tempcount + 1
+                # If nums[i] is odd, reduce the oddcount before moving 'i'
+                if nums[i] % 2 != 0:
+                    oddcount = oddcount - 1
+                # Shrink the window by moving the 'i' pointer to the right
+                i = i + 1
 
-            # Add the number of valid subarrays for this window ending at 'right'
-            final_count += temp_count
+            # Add the number of valid subarrays ending at 'j' to the final count
+            finalcount = finalcount + tempcount
+            j = j + 1  # Move the 'j' pointer to the right to expand the window
 
-            right += 1  # Expand the window by moving right pointer
-
-        return final_count
+        return finalcount

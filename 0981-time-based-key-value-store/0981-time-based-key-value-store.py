@@ -3,14 +3,16 @@ class TimeMap:
     def __init__(self):
         # Initialize the keystore dictionary to hold lists of [value, timestamp] pairs for each key
         self.keystore={}
-
+    
+    #Time is o(1) and space o(n)
     def set(self, key: str, value: str, timestamp: int) -> None:
         # If the key does not exist in the keystore, initialize it with an empty list
         if key not in self.keystore:
             self.keystore[key]=[]
         # Append the value-timestamp pair to the list associated with the key
         self.keystore[key].append([value,timestamp])
-
+        
+    #Time o(logn) and space o(1)
     def get(self, key: str, timestamp: int) -> str:
         if key not in self.keystore:
             return ""

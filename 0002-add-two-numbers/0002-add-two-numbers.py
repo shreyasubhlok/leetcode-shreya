@@ -20,6 +20,7 @@ class Solution:
             curr=curr.next
             l1 = l1.next if l1 != None else None
             l2 = l2.next if l2 != None else None
+            
         if carry>0:
             curr.next=ListNode(carry)
             

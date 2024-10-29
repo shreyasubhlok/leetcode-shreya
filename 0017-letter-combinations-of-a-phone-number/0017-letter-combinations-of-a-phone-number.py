@@ -17,8 +17,8 @@ class Solution:
             if len(currStr)==len(digits):
                 res.append(currStr)
                 return
-            #values=digitsToChar[digits[i]]
-            for c in digitsToChar[digits[i]]:
+            values=digitsToChar[digits[i]]
+            for c in values:
                 backtrack(i+1,currStr+c)
         
         if digits:

@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     '''
     Time complexity: O(4^n), each digit has upto 4 possibile letter (example 7 and 9). Backtrack will general all possible combination so total 

@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    #Time is o(n) and space is o(1)
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         # Dummy node acts as the starting point of the result list
         dummy = ListNode(0)

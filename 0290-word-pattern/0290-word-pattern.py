@@ -32,5 +32,5 @@ class Solution:
                 patternMap[pattern[i]] = words[i]
                 wordSet.add(words[i])
 
-        # Return True if the pattern matches the sequence of words
+     
         return True

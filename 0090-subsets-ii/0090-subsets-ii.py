@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     # Time: O(2^n+nlogn)=~ O(2^n)
     # space: O(n*2^n)

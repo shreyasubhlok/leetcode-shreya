@@ -4,23 +4,35 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        if head==None or head.next==None:
+    # time O(n)
+    # space O(1)
+    def rotateRight(self, head: ListNode, k: int) -> ListNode:
+        # Check if the list is empty or has only one node
+        if head is None or head.next is None:
             return head
-        
-        curr=head
-        length=1
-        while curr.next!=None:
-            curr=curr.next
-            length=length+1
-        curr.next=head
-        
-        k=length-(k%length)
-        
-        while k>0:
-            curr=curr.next
-            k=k-1
-        print(curr.val)
-        newHead=curr.next
-        curr.next=None
+
+        # Calculate the length of the list and connect the tail to the head
+        length = 1
+        curr = head
+        while curr.next is not None:
+            curr = curr.next
+            length += 1
+        curr.next = head  # Form a circular list
+
+        # Find the new head after k rotations
+        k = length - (k % length)
+        while k > 0:
+            curr = curr.next
+            k -= 1
+
+        # Disconnect the circular list and set the new head
+        newHead = curr.next
+        curr.next = None
         return newHead
+
+    def printList(self, head: ListNode):
+        curr = head
+        while curr is not None:
+            print(curr.val, end=" -> ")
+            curr = curr.next
+        print("None")

@@ -15,9 +15,7 @@ class Solution:
             length=length+1
         curr.next=head
         
-        k=k%length
-        k=length-k
-        print(k)
+        k=length-(k%length)
         
         while k>0:
             curr=curr.next

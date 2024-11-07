@@ -1,10 +1,8 @@
 class Solution:
     # Time o(n) and space o(n)
     def asteroidCollision(self, asteroids: list[int]) -> list[int]:
-        # Initialize an empty stack to store asteroids that survive collisions
         stack = []
 
-        # Iterate over each asteroid
         for ast in asteroids:
             # Flag to indicate if a collision happened for the current asteroid
             collisionOccured = False  

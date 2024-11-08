@@ -22,15 +22,12 @@ class Solution:
         currA = headA
         currB = headB
         if lenA > lenB:
-            diff = lenA - lenB
-            while diff != 0:
-                currA = currA.next
-                diff -= 1
+             for i in range(lenA-lenB):
+                currA=currA.next
         else:
-            diff = lenB - lenA
-            while diff != 0:
-                currB = currB.next
-                diff -= 1
+            for i in range(lenB-lenA):
+                currB=currB.next
+    
         
         while currA!=currB:
             currA=currA.next

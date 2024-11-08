@@ -5,17 +5,35 @@
 #         self.next = None
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
-        myset=set()
-        curr=headA
-        while curr!=None:
-            myset.add(curr)
-            curr=curr.next
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        lenA = 1
+        lenB = 1
+        currA = headA
+        currB = headB
+
+        while currA != None:
+            currA = currA.next
+            lenA += 1
+
+        while currB != None:
+            currB = currB.next
+            lenB += 1
+
+        currA = headA
+        currB = headB
+        if lenA > lenB:
+            diff = lenA - lenB
+            while diff != 0:
+                currA = currA.next
+                diff -= 1
+        else:
+            diff = lenB - lenA
+            while diff != 0:
+                currB = currB.next
+                diff -= 1
         
-        newCurr=headB
-        while newCurr!=None:
-            if newCurr in myset:
-                return newCurr
-            newCurr=newCurr.next
-        
-        return None
+        while currA!=currB:
+            currA=currA.next
+            currB=currB.next
+            
+        return currA

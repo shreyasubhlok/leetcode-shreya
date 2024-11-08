@@ -11,8 +11,6 @@ class Solution:
         while curr!=None:
             myset.add(curr)
             curr=curr.next
-            
-      
         
         newCurr=headB
         while newCurr!=None:

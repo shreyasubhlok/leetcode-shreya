@@ -7,6 +7,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0018-4sum](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0018-4sum) |
+| [0039-combination-sum](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0039-combination-sum) |
 | [0046-permutations](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0046-permutations) |
 | [0912-random-pick-with-weight](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0912-random-pick-with-weight) |
 ## Two Pointers
@@ -36,5 +37,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Backtracking
 |  |
 | ------- |
+| [0039-combination-sum](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0039-combination-sum) |
 | [0046-permutations](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0046-permutations) |
 <!---LeetCode Topics End-->

@@ -1,4 +1,5 @@
 class Solution:
+    #Time is O(n) and space(O(1))
     def sortColors(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.

@@ -1,37 +1,78 @@
-import heapq
-
+from collections import defaultdict
+from heapq import heappush, heappop, heapify
+class DoubleLinkedList:
+    def __init__(self, val=None):
+        self.val = val
+        self.next = None
+        self.pre = None
+	
 class MaxStack:
     def __init__(self):
-        self.stack = []  # Stores (value, unique_id)
-        self.maxHeap = []  # Stores (-value, unique_id) for max retrieval
-        self.deleted = set()  # Tracks deleted elements
-        self.idCounter = 0  # Unique ID for each element
+        """
+        initialize your data structure here.
+        """
+        
+        self.stack = DoubleLinkedList(float('-inf')) # init a dummy node
+        self.last = self.stack                       # reference the stack tail
+        self.heap = []
+        self.hmap = defaultdict(list)
+        
 
     def push(self, x: int) -> None:
-        self.stack.append((x, self.idCounter))
-        heapq.heappush(self.maxHeap, (-x, self.idCounter))
-        self.idCounter += 1
-
+        # O(logn)
+        node = DoubleLinkedList(x)
+        
+        # update the tail
+        self.last.next = node
+        node.pre = self.last
+        self.last = node
+        
+        # push -x to the min heap
+        heappush(self.heap, -x)
+        
+        # append node the the map entry
+        self.hmap[x].append(node)
+        
     def pop(self) -> int:
-        while self.stack:
-            val, uid = self.stack.pop()
-            if uid not in self.deleted:
-                self.deleted.add(uid)  # Mark deleted
-                return val
+        # O(1)
+        # pop from the stack and remove from map
+        num = self.last.val
+        self.last = self.last.pre
+        self.last.next = None
+        
+        self.hmap[num].pop()
+        if not self.hmap[num]:
+            del self.hmap[num]
+        return num
 
     def top(self) -> int:
-        while self.stack and self.stack[-1][1] in self.deleted:
-            self.stack.pop()  # Remove stale elements
-        return self.stack[-1][0] if self.stack else -1
+        # O(1)
+        return self.last.val
 
     def peekMax(self) -> int:
-        while self.maxHeap and self.maxHeap[0][1] in self.deleted:
-            heapq.heappop(self.maxHeap)  # Remove stale elements
-        return -self.maxHeap[0][0] if self.maxHeap else -1
+        # O(logN)
+        # during the pop(), we didn't remove the element from heap
+        # So here is to remove the the poped elements from heap
+        while -self.heap[0] not in self.hmap:
+            heappop(self.heap)
+        
+        return -self.heap[0]
 
     def popMax(self) -> int:
-        while self.maxHeap:
-            maxVal, uid = heapq.heappop(self.maxHeap)
-            if uid not in self.deleted:
-                self.deleted.add(uid)  # Mark deleted
-                return -maxVal
+        # O(logN)
+        # get the top-most node from map
+        num = self.peekMax()
+        node = self.hmap[num].pop()
+        if not self.hmap[num]:
+            del self.hmap[num]
+        
+        # update the tail reference
+        if node == self.last:
+            self.last = self.last.pre
+        
+        # remove the node from stack
+        if node.pre:
+            node.pre.next = node.next
+        if node.next:
+            node.next.pre = node.pre
+        return num

@@ -1,78 +1,91 @@
-from collections import defaultdict
-from heapq import heappush, heappop, heapify
-class DoubleLinkedList:
-    def __init__(self, val=None):
-        self.val = val
-        self.next = None
-        self.pre = None
-	
 class MaxStack:
+
     def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        
-        self.stack = DoubleLinkedList(float('-inf')) # init a dummy node
-        self.last = self.stack                       # reference the stack tail
+        self.stack = []
         self.heap = []
-        self.hmap = defaultdict(list)
-        
+        self.removed = set()
+        self.cnt = 0
 
     def push(self, x: int) -> None:
-        # O(logn)
-        node = DoubleLinkedList(x)
-        
-        # update the tail
-        self.last.next = node
-        node.pre = self.last
-        self.last = node
-        
-        # push -x to the min heap
-        heappush(self.heap, -x)
-        
-        # append node the the map entry
-        self.hmap[x].append(node)
-        
+        heapq.heappush(self.heap, (-x, -self.cnt))
+        self.stack.append((x, self.cnt))
+        self.cnt += 1
+    
     def pop(self) -> int:
-        # O(1)
-        # pop from the stack and remove from map
-        num = self.last.val
-        self.last = self.last.pre
-        self.last.next = None
-        
-        self.hmap[num].pop()
-        if not self.hmap[num]:
-            del self.hmap[num]
+        while self.stack and self.stack[-1][1] in self.removed:
+            self.stack.pop()
+        num, ind = self.stack.pop()
+        self.removed.add(ind)
         return num
-
-    def top(self) -> int:
-        # O(1)
-        return self.last.val
-
-    def peekMax(self) -> int:
-        # O(logN)
-        # during the pop(), we didn't remove the element from heap
-        # So here is to remove the the poped elements from heap
-        while -self.heap[0] not in self.hmap:
-            heappop(self.heap)
         
-        return -self.heap[0]
+    def top(self) -> int:
+        while self.stack and self.stack[-1][1] in self.removed:
+            self.stack.pop()
+        
+        num, ind = self.stack[-1]
+        return num
+        
+    def peekMax(self) -> int:
+        while self.heap and -self.heap[0][1] in self.removed:
+            heapq.heappop(self.heap)
+        num, ind = self.heap[0]
+        return -num
 
     def popMax(self) -> int:
-        # O(logN)
-        # get the top-most node from map
-        num = self.peekMax()
-        node = self.hmap[num].pop()
-        if not self.hmap[num]:
-            del self.hmap[num]
+        while self.heap and -self.heap[0][1] in self.removed:
+            heapq.heappop(self.heap)
+        num, ind = heapq.heappop(self.heap)
+        self.removed.add(-ind)
+        return -num
+
+# Your MaxStack object will be instantiated and called as such:
+# obj = MaxStack()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.peekMax()
+# param_5 = obj.popMax()
+
+# class MaxStack:
+
+#     def __init__(self):
+#         self.stack = []
+#         self.maxstack = []
+
+#     def push(self, x: int) -> None:
+#         self.stack.append(x)
+#         maxi = 0
+#         if self.maxstack:
+#             maxi = max(self.stack[-1], self.maxstack[-1])
+#         else:
+#             maxi = self.stack[-1]
+#         self.maxstack.append(maxi)  
+
+#     def pop(self) -> int:
+#         self.maxstack.pop()
+#         return self.stack.pop()
         
-        # update the tail reference
-        if node == self.last:
-            self.last = self.last.pre
+#     def top(self) -> int:
+#         return self.stack[-1] if self.stack else None
+
+#     def peekMax(self) -> int:
+#         return self.maxstack[-1] if self.maxstack else None
+
+#     def popMax(self) -> int:
+#         buffer = []
+#         tbr = self.maxstack[-1]
+#         while self.stack[-1] != tbr:
+#             buffer.append(self.stack.pop())
+#             self.maxstack.pop()
+#         self.stack.pop()
+#         self.maxstack.pop()
+#         while buffer:
+#             self.stack.append(buffer.pop())
+#             maxi = 0
+#             if self.maxstack:
+#                 maxi = max(self.stack[-1], self.maxstack[-1])
+#             else:
+#                 maxi = self.stack[-1]
+#             self.maxstack.append(maxi)
         
-        # remove the node from stack
-        if node.pre:
-            node.pre.next = node.next
-        if node.next:
-            node.next.pre = node.pre
-        return num
+#         return tbr

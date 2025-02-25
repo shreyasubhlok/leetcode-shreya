@@ -1,4 +1,9 @@
 class Solution:
+    '''
+    Time Complexity: In the worst case, we might push up to k elements   into the heap, and each push/pop operation takes O(log k). 
+So the time is approximately O(k log k). That’s a big improvement over the naive O(nm log(nm)).
+Space Complexity: O(k) for the heap and O(k) for the result array and visited set, giving us overall O(k).
+'''
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
         # Create a list to hold the resulting pairs
         result = []  # empty for now

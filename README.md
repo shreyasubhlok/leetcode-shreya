@@ -51,6 +51,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+| [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
 ## Tree
 |  |
 | ------- |
@@ -63,6 +64,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+| [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
 ## Queue
 |  |
 | ------- |
@@ -71,4 +73,16 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+## Linked List
+|  |
+| ------- |
+| [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
+## Doubly-Linked List
+|  |
+| ------- |
+| [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
+## Ordered Set
+|  |
+| ------- |
+| [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
 <!---LeetCode Topics End-->

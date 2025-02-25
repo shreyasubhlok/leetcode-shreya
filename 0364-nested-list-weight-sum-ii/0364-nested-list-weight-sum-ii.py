@@ -43,6 +43,36 @@
 
 class Solution:
     def depthSumInverse(self, nestedList: List[NestedInteger]) -> int:
+        # Helper function to calculate the maximum depth of the nested list
+        def getMaxDepth(nestedList, depth):
+            maxDepth = depth  # Track the current depth
+            for element in nestedList:
+                if not element.isInteger():  # If it's a nested list, go deeper
+                    maxDepth = max(maxDepth, getMaxDepth(element.getList(), depth + 1))
+            return maxDepth
+
+        # Helper function to calculate the weighted sum using the max depth
+        def getWeightedSum(nestedList, depth, maxDepth):
+            total = 0  # Initialize the total sum for this call
+            for element in nestedList:
+                if element.isInteger():  # If the element is an integer
+                    weight = maxDepth - depth + 1  # Calculate weight based on inverse depth
+                    total += element.getInteger() * weight  # Add weighted contribution
+                else:  # If the element is a nested list, recurse deeper
+                    total += getWeightedSum(element.getList(), depth + 1, maxDepth)
+            return total
+
+        # Step 1: Calculate the maximum depth of the nested list
+        maxDepth = getMaxDepth(nestedList, 1)
+
+        # Step 2: Calculate the weighted sum using the calculated max depth
+        return getWeightedSum(nestedList, 1, maxDepth)
+
+
+    # BFS Approach for 364. Nested List Weight Sum II
+    # Time Complexity: O(n), where n is the total number of elements in the nested structure
+    # Space Complexity: O(d), where d is the maximum depth (due to the queue)
+    def depthSumInverseBFS(nestedList: List[NestedInteger]) -> int:
         total = 0  # Final result to store the weighted sum
         currTotal = 0  # Running sum of integers encountered so far
         queue = deque(nestedList)  # Initialize the queue with the top-level list elements

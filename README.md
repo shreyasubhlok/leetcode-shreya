@@ -62,6 +62,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Depth-First Search
 |  |
 | ------- |
+| [0339-nested-list-weight-sum](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0339-nested-list-weight-sum) |
 | [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
 | [0364-nested-list-weight-sum-ii](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0364-nested-list-weight-sum-ii) |
 ## Design
@@ -99,5 +100,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Breadth-First Search
 |  |
 | ------- |
+| [0339-nested-list-weight-sum](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0339-nested-list-weight-sum) |
 | [0364-nested-list-weight-sum-ii](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0364-nested-list-weight-sum-ii) |
 <!---LeetCode Topics End-->

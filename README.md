@@ -48,6 +48,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0041-first-missing-positive](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0041-first-missing-positive) |
+| [0432-all-oone-data-structure](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0432-all-oone-data-structure) |
 ## Stack
 |  |
 | ------- |
@@ -65,6 +66,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+| [0432-all-oone-data-structure](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0432-all-oone-data-structure) |
 | [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
 ## Queue
 |  |
@@ -77,10 +79,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Linked List
 |  |
 | ------- |
+| [0432-all-oone-data-structure](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0432-all-oone-data-structure) |
 | [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
 ## Doubly-Linked List
 |  |
 | ------- |
+| [0432-all-oone-data-structure](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0432-all-oone-data-structure) |
 | [0716-max-stack](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0716-max-stack) |
 ## Ordered Set
 |  |

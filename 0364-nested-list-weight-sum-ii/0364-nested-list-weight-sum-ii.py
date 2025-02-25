@@ -41,6 +41,9 @@
 #        :rtype List[NestedInteger]
 #        """
 
+# DFS Approach for 364. Nested List Weight Sum II
+# Time Complexity: O(n), where n is the total number of elements in the nested structure
+# Space Complexity: O(d), where d is the maximum depth (due to recursion stack)
 class Solution:
     def depthSumInverse(self, nestedList: List[NestedInteger]) -> int:
         # Helper function to calculate the maximum depth of the nested list

@@ -47,4 +47,28 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0041-first-missing-positive](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0041-first-missing-positive) |
+## Stack
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+## Tree
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+## Depth-First Search
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+## Design
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+## Queue
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
+## Iterator
+|  |
+| ------- |
+| [0341-flatten-nested-list-iterator](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0341-flatten-nested-list-iterator) |
 <!---LeetCode Topics End-->

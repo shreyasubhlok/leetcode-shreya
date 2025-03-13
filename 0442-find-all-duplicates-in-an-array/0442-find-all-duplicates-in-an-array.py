@@ -1,4 +1,5 @@
 class Solution:
+    #Time is O(n) and space O(1)
     def findDuplicates(self, nums: List[int]) -> List[int]:
         duplicates=[]
         i=0 # start an index at 0
@@ -13,6 +14,7 @@ class Solution:
 
         '''
         class Solution:
+    #Time is O(n) and space O(n)
     def findDuplicates(self, nums: List[int]) -> List[int]:
         visited = set()
         res = []

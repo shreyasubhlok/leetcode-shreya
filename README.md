@@ -12,6 +12,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0046-permutations](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0046-permutations) |
 | [0075-sort-colors](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0075-sort-colors) |
 | [0373-find-k-pairs-with-smallest-sums](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0373-find-k-pairs-with-smallest-sums) |
+| [0442-find-all-duplicates-in-an-array](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0442-find-all-duplicates-in-an-array) |
 | [0912-random-pick-with-weight](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0912-random-pick-with-weight) |
 ## Two Pointers
 |  |
@@ -49,6 +50,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0041-first-missing-positive](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0041-first-missing-positive) |
 | [0432-all-oone-data-structure](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0432-all-oone-data-structure) |
+| [0442-find-all-duplicates-in-an-array](https://github.com/shreyasubhlok/leetcode-shreya/tree/master/0442-find-all-duplicates-in-an-array) |
 ## Stack
 |  |
 | ------- |
